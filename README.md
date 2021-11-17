@@ -19,6 +19,12 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [Labelling](#labelling)
   - [Inter Annotator Agreement](#inter-annotator-agreement)
   - [Data Analysis](#data-analysis)
+    - [Vocabulary statistics](#vocabulary-statistics)
+    - [Vocabulary frequencies](#vocabulary-frequencies)
+    - [Top 50 word frequencies](#top-50-word-frequencies)
+    - [Tuits per language and classes](#tuits-per-language-and-classes)
+    - [Histograms of length of tweets](#histograms-of-length-of-tweets)
+    - [Wordcloud](#wordcloud)
 - [System Architecture](#system-architecture)
   - [Pre-pocessing tweets](#pre-processing-tweets)
   - [Methodology](#methodology)
@@ -78,6 +84,38 @@ The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv)
 The annotation for this database to detect misogyny was performed by 6 human annotators (5 women and 1 man) which first language are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
 
 - ### Data Analysis
+
+#### Vocabulary statistics
+
+Statistics regarding the counts of the vocabulary (also known as frequencies):
+
+- `count` number of word tokens instances in tweets.
+- `mean` average number of words per type of word.
+- `std` standard deviation for number of words per word type.
+- `min` minimum number of words per word type.
+- `25%`, `50%`, `75%` (percentiles).
+- `max` maximum number of words per type.
+
+| | Frequency | Description |
+| :-: | :-: | :-: |
+| count | 19063 | Number of different words |
+| mean | 3.444841 | The average number words appear |
+| std | 13.935922 | The standard deviation associated to the words |
+| min | 1 | The minimum number that a word appears |
+| 25% | 1 | Up to 25% of the words appear |
+| 50% | 1 | Up to 50% of the words appear |
+| 75% | 2 | Up to 75% of the words appear |
+| max | 1062 | The maximum number that a word appears |
+
+#### Vocabulary frequencies
+
+#### Top 50 word frequencies
+
+#### Tuits per language and classes
+
+#### Histograms of length of tweets
+
+#### Wordcloud
 
 ## System Architecture
 
