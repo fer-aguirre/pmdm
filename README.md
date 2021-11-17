@@ -19,13 +19,13 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [Labelling](#labelling)
   - [Inter Annotator Agreement](#inter-annotator-agreement)
   - [Data Analysis](#data-analysis)
+    - [Pre-pocessing tweets](#pre-processing-tweets)
     - [Vocabulary statistics](#vocabulary-statistics)
     - [Vocabulary frequencies](#vocabulary-frequencies)
     - [Top 50 word frequencies](#top-50-word-frequencies)
     - [Histograms of length of tweets](#histograms-of-length-of-tweets)
     - [Wordcloud](#wordcloud)
 - [System Architecture](#system-architecture)
-  - [Pre-pocessing tweets](#pre-processing-tweets)
   - [Methodology](#methodology)
   - [Pre-trained models](#pre-trained-models)
 - [API Documentation](#api-documentation)
@@ -80,6 +80,20 @@ The annotation for this database to detect misogyny was performed by 6 human ann
 
 - ### Data Analysis
 
+#### Pre-processing tweets
+
+There are several pre-processing steps on NLP that can be applied to the data:
+
+- **Uncased:** All words are lowered. *(e.g., GitHub → github)*
+- **Demojize:** Change emojis to textual representation. *(e.g., ☺️ → :smiling_face:)*
+- **URLs:** Replace URLs with `$URL$` *(e.g., https://github.com/ → $URL$)*
+- **Mentions:** Replace mentions with `$MENTION$` *(e.g., @github → $MENTION$)*
+- **Hashtags:** Replace hashtags with `$HASHTAG$` *(e.g, #github → $HASHTAG$)*
+- **Emojis:** Replace emojis with `$EMOJI$` *(e.g., 😃 → $EMOJI$)*
+- **Smileys:** Replace smileys with `$SMILEY` *(e.g, :) → $SMILEY)*
+- **Numbers:** Replace numbers with `$NUMBER$` *(e.g, 4 → $NUMBER$)*
+- **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g, char(2) → $ESCAPE_CHAR$)*
+
 #### Vocabulary statistics
 
 | | Frequency | Description |
@@ -112,19 +126,7 @@ The annotation for this database to detect misogyny was performed by 6 human ann
 
 ## System Architecture
 
-### Pre-processing tweets
-
-There are several pre-processing steps on NLP that can be applied to the data:
-
-- **Uncased:** All words are lowered. *(e.g., GitHub → github)*
-- **Demojize:** Change emojis to textual representation. *(e.g., ☺️ → :smiling_face:)*
-- **URLs:** Replace URLs with `$URL$` *(e.g., https://github.com/ → $URL$)*
-- **Mentions:** Replace mentions with `$MENTION$` *(e.g., @github → $MENTION$)*
-- **Hashtags:** Replace hashtags with `$HASHTAG$` *(e.g, #github → $HASHTAG$)*
-- **Emojis:** Replace emojis with `$EMOJI$` *(e.g., 😃 → $EMOJI$)*
-- **Smileys:** Replace smileys with `$SMILEY` *(e.g, :) → $SMILEY)*
-- **Numbers:** Replace numbers with `$NUMBER$` *(e.g, 4 → $NUMBER$)*
-- **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g, char(2) → $ESCAPE_CHAR$)*
+![System Architecture](/architecture/architecture.png)
 
 ### Methodology
 
