@@ -22,7 +22,6 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
     - [Vocabulary statistics](#vocabulary-statistics)
     - [Vocabulary frequencies](#vocabulary-frequencies)
     - [Top 50 word frequencies](#top-50-word-frequencies)
-    - [Tuits per language and classes](#tuits-per-language-and-classes)
     - [Histograms of length of tweets](#histograms-of-length-of-tweets)
     - [Wordcloud](#wordcloud)
 - [System Architecture](#system-architecture)
@@ -69,15 +68,11 @@ The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv)
 
 2. **Classification**: Tweets are annotated with the label `1` if they are misogynistic or `0` if they are not. Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
 
-| 1 | 0 | 
-| :-: | :-: |
-| 2637 | 1542 |
+![Tuits per classes](/data-analysis/classification.png)
 
 3. **Language**: There's a label for the language of the tweet, `es` for Spanish and `pt` for Portuguese. There are 2087 tweets on Spanish and 2092 on Portuguese.
 
-| es | pt |
-| :-: | :-: |
-| 2087 | 2092 |
+![Tuits per language](/data-analysis/language.png)
 
 - ### Inter Annotator Agreement:
 
@@ -86,15 +81,6 @@ The annotation for this database to detect misogyny was performed by 6 human ann
 - ### Data Analysis
 
 #### Vocabulary statistics
-
-Statistics regarding the counts of the vocabulary (also known as frequencies):
-
-- `count` number of word tokens instances in tweets.
-- `mean` average number of words per type of word.
-- `std` standard deviation for number of words per word type.
-- `min` minimum number of words per word type.
-- `25%`, `50%`, `75%` (percentiles).
-- `max` maximum number of words per type.
 
 | | Frequency | Description |
 | :-: | :-: | :-: |
@@ -109,13 +95,20 @@ Statistics regarding the counts of the vocabulary (also known as frequencies):
 
 #### Vocabulary frequencies
 
+
+
 #### Top 50 word frequencies
 
-#### Tuits per language and classes
+![Top 50 word frequencies](/data-analysis/common_words.png)
 
 #### Histograms of length of tweets
 
+![Histograms of length of tokens](/data-analysis/lenght_token.png)
+![Histograms of length of chars](/data-analysis/lenght_chars.png)
+
 #### Wordcloud
+
+![Wordcloud](/data-analysis/wordcloud.png)
 
 ## System Architecture
 
