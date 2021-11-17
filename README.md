@@ -95,7 +95,7 @@ The annotation for this database to detect misogyny was performed by 6 human ann
 
 #### Vocabulary frequencies
 
-
+![Vocabulary frequencies](/data-analysis/vocabulary_freq.png)
 
 #### Top 50 word frequencies
 
