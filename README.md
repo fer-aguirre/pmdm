@@ -44,11 +44,11 @@ In our project, we support that the automation of detecting misogynistic discour
 
 Since the collaborators are from Latin American countries, this model was trained with Spanish and Portuguese tweets posted from 2020 to 2021. We retrieved 4179 tweets from Twitter in 'csv' format.
 
+> There are missing 270 tweets from the database we used to train the model and the database we share in this repo since we couldn't recover the IDs from these tweets. All the following amounts belong to the database training.
+
 | database training | database repository |
 | :-: | :-: |
 | 4179 | 3909 |
-
-> There are missing 270 tweets from the database we used to train the model and the database we share in this repo since we couldn't recover the IDs from these tweets. The following amounts belong to the database training.
 
 - ### Corpus Creation:
 
@@ -56,18 +56,18 @@ We created a dictionary on Spanish and one on Portuguese with misogynistic terms
 
 - ### Labelling:
 
-The data file includes three columns:
+The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv) includes three columns:
 
 1. **ID**: As Twitter's policy prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable.
 
 
-2. **Classification**: Tweets are annotated at word level either they are misogynistic (sim/si) or not (não/no). Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
+2. **Classification**: Tweets are annotated with the label `1` if they are misogynistic or `0` if they are not. Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
 
-| si | sim | no | não |
-| :-: | :-: | :-: | :-: |
-| 1437 | 1200 | 650 | 892 |
+| 1 | 0 | 
+| :-: | :-: |
+| 2637 | 1542 |
 
-3. **Language**: There's a label for the language of the tweet, 'es' for Spanish and 'pt' for Portuguese. There are 2087 tweets on Spanish and 2092 on Portuguese.
+3. **Language**: There's a label for the language of the tweet, `es` for Spanish and `pt` for Portuguese. There are 2087 tweets on Spanish and 2092 on Portuguese.
 
 | es | pt |
 | :-: | :-: |
