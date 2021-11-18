@@ -265,7 +265,7 @@ Default tweet arguments:
 
 ### More Examples
 
-For more examples, see this [Jupyter Notebook](https://nbviewer.org/)
+For more examples, see this [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/master/examples/examples.ipynb)
 
 ## Future Work
 
