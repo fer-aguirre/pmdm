@@ -1,6 +1,6 @@
 # Political Misogynistic Discourse Monitor (PMDM)
 
-`Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects misogynistic discourse in several languages. 
+`Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
 
 We would like to thank ***Iván Vladimir*** for all his help developing the software, the website and the application programming interface. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
@@ -29,7 +29,7 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [Methodology](#methodology)
   - [Pre-trained Models](#pre-trained-models)
 - [API Documentation](#api-documentation)
-  - [Requests Library](#rquests-library)
+  - [Requests Library](#requests-library)
   - [POST Request](#post-request)
   - [Status Code](#status-code)
   - [Classifying Text](#classifying-text)
@@ -44,7 +44,7 @@ The *Political Misogynistic Discourse Monitor* team is part of the [JournalismAI
 
 According to the report [*Violence Against Women in Politics*](https://www.unwomen.org/en/digital-library/publications/2014/6/violence-against-women-in-politics), this kind of violence is a deterrent to the participation of women in the political sphere, where women from marginalized communities are disproportionately affected. [UN Women](https://www.unwomen.org/en/what-we-do/leadership-and-political-participation/facts-and-figures) states that in Latin America’s context, women hold barely 30% of parliamentary seats. In addition, UN Women stands out that “gender equality in the highest positions of power will not be reached for another 130 years”. The above facts lead us to analyze how the violence against women is perpetrated and has an impact in their participation. We want to report this kind of disinformation and attacks throughout Latin America in an effort to motivate new narratives where women have a safe space in their involvement in politics. 
 
-In our project, we support that the automation of detecting misogynistic discourse is just a tool to help identifying attacks against women among a large volume of data on Twitter, so the system highlights content that can be analyzed by a human moderator afterward.
+For the above reason, although this AI model is able to identify violence against women in general, we want to focus on misogyny in political discourse as a case study in Latin America. In our project, we support that the automation of detecting misogynistic discourse is just a tool to help identifying attacks against women among a large volume of data on Twitter, so the system highlights content that can be analyzed by a human moderator afterward.
 
 ## Data
 
@@ -113,7 +113,7 @@ There are several pre-processing steps on Natural Language Processing that can b
 
 This graph shows the full vocabulary of the data:
 
-![Vocabulary frequencies](/data-analysis/vocabulary_freq.png)
+![Vocabulary frequencies](/data-analysis/vocabulary_frequency.png)
 
 #### Top 50 word frequencies
 
@@ -269,5 +269,10 @@ For more examples, see this [Jupyter Notebook](https://nbviewer.org/github/fer-a
 
 ## Future Work
 
+For future work we would like to create datasets from Latin American countries not included at this point in the interest of keep training the model. Furthermore, we will use the API to streamline the detection and to analyze instances of misogynistic discourse on social media.
+
+Since we are aware that the management of an API is still not very accessible for a lot of newsrooms in the region due to technical requirements, we want to document and methodize use applications that hopefully inspire and help other organizations to work with this tool. 
+
 ## Related work
+
 [violentometro-online](https://violentometro-online.herokuapp.com/) -> [Documentation](https://github.com/violentometro-online-team/violentometro-online)
