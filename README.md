@@ -27,13 +27,14 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
     - [Wordcloud](#wordcloud)
 - [System Architecture](#system-architecture)
   - [Methodology](#methodology)
-  - [Pre-trained models](#pre-trained-models)
+  - [Pre-trained Models](#pre-trained-models)
 - [API Documentation](#api-documentation)
+  - [Requests Library](#rquests-library)
   - [POST Request](#post-request)
   - [Status Code](#status-code)
-  - [Classifying text](#classifying-text)
-  - [Classifying files](#classifying-files)
-  - [More examples](#more-examples)
+  - [Classifying Text](#classifying-text)
+  - [Classifying Files](#classifying-files)
+  - [More Examples](#more-examples)
 - [Future Work](#future-work)
 - [Related Work](#related-work)
 
@@ -147,7 +148,7 @@ We followed a machine learning [methodology](https://en.wikipedia.org/wiki/Train
 | Test | 10% |
 | Validation | 10% |
 
-### Pre-trained models
+### Pre-trained Models
 
 We tested several Transformer and Adapters models. Nevertheless, [`xlm-roberta-base`](https://huggingface.co/xlm-roberta-base) was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
 
@@ -161,13 +162,15 @@ For more information about all the model performances, checkout this [technical 
 
 To enable communication with the API, we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is well-documented and simple.
 
-#### Installing package with conda:
+### Requests Library
+
+Installing package with conda:
 
   ```python3
   conda install requests
   ```
 
-#### Installing package with pip:
+Installing package with pip:
 
   ```python3
   pip install requests
@@ -203,7 +206,7 @@ The status code method shows the result when a request is sent. Responses can be
 
 For more information about HTTP response status codes, checkout this [guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-### Classifying text 
+### Classifying Text 
 
   ```python3 
   import requests
@@ -237,7 +240,7 @@ Default tweet arguments:
   }
 ```
 
-### Classifying files
+### Classifying Files
 
   ```python3 
   import requests
@@ -260,7 +263,7 @@ Default tweet arguments:
   response.json()
   ``` 
 
-### More examples
+### More Examples
 
 For more examples, see this [Jupyter Notebook](https://nbviewer.org/)
 
