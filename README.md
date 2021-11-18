@@ -193,7 +193,7 @@ For more information about HTTP request methods, checkout this [guide](https://d
 
 ### Status Code
 
-The status code method shows shows the result when a request is sent. Responses can be grouped in five categories:
+The status code method shows the result when a request is sent. Responses can be grouped in five categories:
 
 1. Informational `100`-`199`
 2. Succesful `200`-`299`
