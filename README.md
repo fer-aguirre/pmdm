@@ -2,7 +2,7 @@
 
 `Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects misogynistic discourse in several languages. 
 
-We would like to thank ***Iván Vladimir*** for all his help developing the software and the application programming interface and [IIMAS](https://www.iimas.unam.mx/) for hosting the website.
+We would like to thank ***Iván Vladimir*** for all his help developing the software, the website and the application programming interface. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
 **Team members:**
 - Bárbara Libório
@@ -30,7 +30,7 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [Pre-trained models](#pre-trained-models)
 - [API Documentation](#api-documentation)
   - [POST Request](#post-request)
-  - [HTTP Status Code](#http-status-code)
+  - [Status Code](#status-code)
   - [Classifying text](#classifying-text)
   - [Classifying files](#classifying-files)
   - [More examples](#more-examples)
@@ -49,7 +49,7 @@ In our project, we support that the automation of detecting misogynistic discour
 
 Since the collaborators are from Latin American countries, this model was trained with Spanish and Portuguese tweets posted from 2020 to 2021. We retrieved 4179 tweets from Twitter in 'csv' format.
 
-> There are missing 270 tweets from the database we used to train the model and the database we share in this repo since we couldn't recover the IDs from these tweets. All the following amounts belong to the database training.
+> There are missing 270 tweets from the database we used to train the model and the database we share in this repository since we couldn't recover the IDs from these tweets. All the following amounts belong to the database training.
 
 | database training | database repository |
 | :-: | :-: |
@@ -82,9 +82,10 @@ The annotation for this database to detect misogyny was performed by 6 human ann
 
 #### Pre-processing tweets
 
-There are several pre-processing steps on NLP that can be applied to the data:
+There are several pre-processing steps on Natural Language Processing that can be applied to the data:
 
-- **Uncased:** All words are lowered. *(e.g., GitHub → github)*
+- **Lowers:** All words are lowered. *(e.g., GitHub → github)*
+- **Stop words:** Remove words that are very common but don’t provide useful information. *(e.g., prepositions)*
 - **Demojize:** Change emojis to textual representation. *(e.g., ☺️ → :smiling_face:)*
 - **URLs:** Replace URLs with `$URL$` *(e.g., https://github.com/ → $URL$)*
 - **Mentions:** Replace mentions with `$MENTION$` *(e.g., @github → $MENTION$)*
@@ -109,18 +110,26 @@ There are several pre-processing steps on NLP that can be applied to the data:
 
 #### Vocabulary frequencies
 
+This graph shows the full vocabulary of the data:
+
 ![Vocabulary frequencies](/data-analysis/vocabulary_freq.png)
 
 #### Top 50 word frequencies
+
+This graph shows the fifty most common words in the data: 
 
 ![Top 50 word frequencies](/data-analysis/common_words.png)
 
 #### Histograms of length of tweets
 
+These graphs show the number of tweets with a certain length:
+
 ![Histograms of length of tokens](/data-analysis/lenght_token.png)
 ![Histograms of length of chars](/data-analysis/lenght_chars.png)
 
 #### Wordcloud
+
+This is a wordcloud with the most common words.
 
 ![Wordcloud](/data-analysis/wordcloud.png)
 
@@ -130,25 +139,35 @@ There are several pre-processing steps on NLP that can be applied to the data:
 
 ### Methodology
 
+We followed a machine learning [methodology](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) in which we used part of the labelled data to train a model which then is tested on another part of the data. During training we validated the progress of the model using a third part of the data.
+
+| Split | Percentage |
+| :-: | :-: |
+| Train | 80% |
+| Test | 10% |
+| Validation | 10% |
+
 ### Pre-trained models
 
-Transformer model:
+We tested several Transformer and Adapters models. Nevertheless, [`xlm-roberta-base`](https://huggingface.co/xlm-roberta-base) was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
 
-- [`bert-base-multilingual-cased`](https://huggingface.co/bert-base-multilingual-cased) and [`bert-base-multilingual-uncased`](https://huggingface.co/bert-base-multilingual-uncased)
-- [`distilbert-base-multilingual-cased`](https://huggingface.co/distilbert-base-multilingual-cased)
-- [`xlm-roberta-base`](https://huggingface.co/xlm-roberta-base) and [`xlm-roberta-large`](https://huggingface.co/xlm-roberta-large)
+| Model | Type | F1 (both) | es | pt |
+| :-: | :-: | :-: | :-: | :-: |
+| xlm-roberta-base | multilingual | ? | ? | ? |
+
+For more information about all the model performances, checkout this [technical report](link).
 
 ## API [Documentation](https://turing.iimas.unam.mx/pmdm/docs)
 
-Usage examples with the Python library `requests`.
+To enable communication with the API, we need a [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is and well-documented and simple.
 
-### Installing package with conda:
+#### Installing package with conda:
 
   ```python3
   conda install requests
   ```
 
-### Installing package with pip:
+#### Installing package with pip:
 
   ```python3
   pip install requests
@@ -156,21 +175,31 @@ Usage examples with the Python library `requests`.
 
 ### POST Request
 
+The POST method is used when we want to submit data to be processed to the server. Here's an example of the syntax:
+
 `requests.post(url, headers={key: value}, json={key: value}, data={key: value})`
 
 #### Parameter Values
 
 | Parameter | Description |
 | :-: | --- |
-| url | *Requiered:* The URL of the request |
-| headers | *Optional:* A dict of HTTP to send to the url |
-| json | *Optional:* A JSON to send to the url |
-| files | *Optional:* A dict of files to send to the url |
-| data | *Optional:* A dict, list of tuples, bytes of file object to send to the url|
+| url | The url of the request |
+| headers | A dict to send to the url |
+| json | A dict to send to the url |
+| files | A dict of files to send to the url |
+| data | A dict or list of tuples to send to the url|
 
-### HTTP Status Code
+### Status Code
 
+The status code method shows shows the result when a request is sent. Responses can be grouped in five categories:
 
+1. Informational `100`-`199`
+2. Succesful `200`-`299`
+4. Redirection `300`-`399`
+5. Client error `400`-`499`
+6. Server error `500`-`599`
+
+For more information about HTTP response status codes, checkout this [guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
 ### Classifying text 
 
