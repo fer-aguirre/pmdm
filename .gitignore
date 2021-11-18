@@ -1,3 +1,6 @@
 # Folders:
 /env_pmdm
 /examples/.ipynb*
+
+# Files:
+examples/token.txt
