@@ -136,7 +136,7 @@ This is a wordcloud with the most common words.
 
 ## System Architecture
 
-![System Architecture](/architecture/architecture.png)
+![System Architecture](/architecture/diagram.png)
 
 ### Methodology
 
