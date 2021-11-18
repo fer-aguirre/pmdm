@@ -159,7 +159,7 @@ For more information about all the model performances, checkout this [technical 
 
 ## API [Documentation](https://turing.iimas.unam.mx/pmdm/docs)
 
-To enable communication with the API, we need a [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is and well-documented and simple.
+To enable communication with the API, we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is well-documented and simple.
 
 #### Installing package with conda:
 
@@ -178,6 +178,8 @@ To enable communication with the API, we need a [HTTP](https://en.wikipedia.org/
 The POST method is used when we want to submit data to be processed to the server. Here's an example of the syntax:
 
 `requests.post(url, headers={key: value}, json={key: value}, data={key: value})`
+
+For more information about HTTP request methods, checkout this [guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 #### Parameter Values
 
