@@ -269,7 +269,7 @@ For more examples, see this [Jupyter Notebook](https://nbviewer.org/github/fer-a
 
 ## Future Work
 
-For future work we would like to create datasets from Latin American countries not included at this point in the interest of keep training the model. Furthermore, we will use the API to streamline the detection and to analyze instances of misogynistic discourse on social media.
+For future work we would like to create datasets from Latin American countries not included at this point in the interest of keeping the model's training. Furthermore, we will use the API to streamline the detection and to analyze instances of misogynistic discourse on social media.
 
 Since we are aware that the management of an API is still not very accessible for a lot of newsrooms in the region due to technical requirements, we want to document and methodize use applications that hopefully inspire and help other organizations to work with this tool. 
 
