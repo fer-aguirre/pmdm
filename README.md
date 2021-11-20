@@ -5,12 +5,12 @@
 We would like to thank ***Iván Vladimir*** for all his help developing the software, the website and the application programming interface. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
 **Team members:**
-- Bárbara Libório
-- Marina Gama
-- Helena Bertho
-- Gaby Bouret
-- Jose Luis Peñarredonda
-- Fer Aguirre
+- Bárbara Libório, [AzMina](https://azmina.com.br/)
+- Marina Gama, [AzMina](https://azmina.com.br/)
+- Helena Bertho, [AzMina](https://azmina.com.br/)
+- Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
+- Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
+- Fer Aguirre, [DataCrítica](https://datacritica.org/)
 
 ## Contents
 - [Introduction](#introduction)
