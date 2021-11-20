@@ -37,6 +37,7 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [More Examples](#more-examples)
 - [Future Work](#future-work)
 - [Related Work](#related-work)
+- [References](#references)
 
 ## Introduction
 
@@ -276,3 +277,12 @@ Since we are aware that the management of an API is still not very accessible fo
 ## Related work
 
 [violentometro-online](https://violentometro-online.herokuapp.com/) -> [Documentation](https://github.com/violentometro-online-team/violentometro-online)
+
+## References
+
+- [Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf)
+- [Ethical and technical challenges of AI in tackling hate speech](https://informationethics.ca/index.php/irie/article/view/416/390)
+- [Detección de Discurso de Odio en Redes Sociales mediante Transformers y Natural Language Processing](https://medium.com/saturdays-ai/detecci%C3%B3n-de-discurso-de-odio-en-redes-sociales-mediante-transformers-y-natural-language-processing-6c07a88b2e5f)
+- [Violência Política de Gênero: as diferenças entre os ataques recebidos por mulheres e seus oponentes](https://azmina.com.br/reportagens/violencia-politica-de-genero-as-diferencas-entre-os-ataques-recebidos-por-mulheres-e-seus-oponentes/)
+- [Tackling Online Abuse and Disinformation Targeting Women in Politics](https://carnegieendowment.org/2020/11/30/tackling-online-abuse-and-disinformation-targeting-women-in-politics-pub-83331)
+- [#ShePersisted: why gendered disinformation](https://www.she-persisted.org/why)
