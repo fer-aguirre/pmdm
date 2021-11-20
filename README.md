@@ -58,7 +58,7 @@ Since the collaborators are from Latin American countries, this model was traine
 
 - ### Corpus Creation:
 
-We created a dictionary on Spanish and one on Portuguese with misogynistic terms and phrases. Along with that, we made two lists of usernames: one for trendy politicians and a second for black, indigenous and trans women politicians, journalists and activists from Brazil, Argentina, Colombia and Mexico. Therefore tweets mentioning those usernames were collected from Twitter using [Meltwater](https://www.meltwater.com/en) and filtered by the dictionaries with regular expressions.
+We created a dictionary on Spanish and one on Portuguese with misogynistic terms and phrases. Along with that, we made a list of usernames for trendy politicians. However, we considered those accounts wouldn't be inclusive enough, so we decided to create a second list exclusively for diverse women (black, indigenous and LGBTQIA+) politicians, journalists and activists from Brazil, Argentina, Colombia and Mexico. Therefore tweets mentioning both lists of usernames were collected from Twitter using [Meltwater](https://www.meltwater.com/en) and filtered by the dictionaries with regular expressions.
 
 - ### Labelling:
 
