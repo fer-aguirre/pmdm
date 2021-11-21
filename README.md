@@ -1,3 +1,5 @@
+### [Español](README-ES.md) | [Português](README-PT.md)
+---
 # Political Misogynistic Discourse Monitor (PMDM)
 
 `Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
