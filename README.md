@@ -39,7 +39,7 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [More Examples](#more-examples)
 - [Future Work](#future-work)
 - [Related Work](#related-work)
-- [References](#references)
+- [Bibliography](#bibliography)
 
 ## Introduction
 
