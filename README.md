@@ -4,7 +4,7 @@
 
 `Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
 
-We would like to thank ***Iván Vladimir*** for all his help developing the software, the website and the application programming interface. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
+We would like to thank ***Iván Vladimir*** for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
 **Team members:**
 - Bárbara Libório, [AzMina](https://azmina.com.br/)
@@ -20,16 +20,16 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
   - [Corpus Creation](#corpus-creation)
   - [Labelling](#labelling)
   - [Inter Annotator Agreement](#inter-annotator-agreement)
+- [Methodology](#methodology)
+  - [Pre-pocessing Tweets](#pre-processing-tweets)
   - [Data Analysis](#data-analysis)
-    - [Pre-pocessing tweets](#pre-processing-tweets)
-    - [Vocabulary statistics](#vocabulary-statistics)
-    - [Vocabulary frequencies](#vocabulary-frequencies)
-    - [Top 50 word frequencies](#top-50-word-frequencies)
-    - [Histograms of length of tweets](#histograms-of-length-of-tweets)
+    - [Vocabulary Statistics](#vocabulary-statistics)
+    - [Vocabulary Frequencies](#vocabulary-frequencies)
+    - [Top 50 Words Frequencies](#top-50-words-frequencies)
+    - [Histograms of Length of Tweets](#histograms-of-length-of-tweets)
     - [Wordcloud](#wordcloud)
-- [System Architecture](#system-architecture)
-  - [Methodology](#methodology)
   - [Pre-trained Models](#pre-trained-models)
+  - [System Architecture](#system-architecture)
 - [API Documentation](#api-documentation)
   - [Requests Library](#requests-library)
   - [POST Request](#post-request)
@@ -53,22 +53,21 @@ For the above reason, although this AI model is able to identify violence agains
 
 Since the collaborators are from Latin American countries, this model was trained with Spanish and Portuguese tweets posted from 2020 to 2021. We retrieved 4179 tweets from Twitter in 'csv' format.
 
-> There are missing 270 tweets from the database we used to train the model and the database we share in this repository since we couldn't recover the IDs from these tweets. All the following amounts belong to the database training.
+> There are missing 270 tweets from the database we used to train the model and the database we share in this repository since we couldn't recover the IDs from those tweets. All the amounts from the data analysis in this repository belong to the database training.
 
 | database training | database repository |
 | :-: | :-: |
 | 4179 | 3909 |
 
-- ### Corpus Creation:
+### Corpus Creation:
 
-We created a dictionary on Spanish and one on Portuguese with misogynistic terms and phrases. Along with that, we made a list of usernames for trendy politicians. However, we considered those accounts wouldn't be inclusive enough, so we decided to create a second list exclusively for diverse women (black, indigenous and LGBTQIA+) politicians, journalists and activists from Brazil, Argentina, Colombia and Mexico. Therefore tweets mentioning both lists of usernames were collected from Twitter using [Meltwater](https://www.meltwater.com/en) and filtered by the dictionaries with regular expressions.
+We created a dictionary on Spanish and one on Portuguese with misogynistic terms and phrases. Along with that, we made a list of usernames for trendy politicians. However, we considered those accounts wouldn't be inclusive enough, so we decided to make a second list exclusively for diverse women (black, indigenous and LGBTQIA+) politicians, journalists and activists from Brazil, Argentina, Colombia and Mexico. Therefore tweets mentioning both lists of usernames were collected from Twitter using [Meltwater](https://www.meltwater.com/en) and filtered by the dictionaries with regular expressions.
 
-- ### Labelling:
+### Labelling:
 
 The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv) includes three columns:
 
-1. **ID**: As Twitter's policy prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable.
-
+1. **ID**: As [Twitter's policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy) prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable and can be transformed into the original text using available tools.
 
 2. **Classification**: Tweets are annotated with the label `1` if they are misogynistic or `0` if they are not. Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
 
@@ -78,13 +77,19 @@ The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv)
 
 ![Tuits per language](/data-analysis/language.png)
 
-- ### Inter Annotator Agreement:
+### Inter Annotator Agreement:
 
-The annotation for this database to detect misogyny was performed by 6 human annotators (5 women and 1 man) which first language are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
+The annotation for this database to detect misogyny was performed by six human annotators (five women and one man) which first language are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
 
-- ### Data Analysis
+## Methodology
 
-#### Pre-processing tweets
+In order to create the classifier, we made use of five Colaboratory Python Notebooks:
+
+1. [Data analysis](link): Basic analysis and statistics of the data.
+2. [Train and evaluate model](link) (2 versions): Trains a model and evaluates it, one for Transformers and another for Adapters.
+3. [Labelling data](link) (2 versions): Labels data from entry form from the notebook or from a file, one for Transformers and another for Adapters.
+
+### Pre-processing Tweets
 
 There are several pre-processing steps on Natural Language Processing that can be applied to the data:
 
@@ -99,7 +104,19 @@ There are several pre-processing steps on Natural Language Processing that can b
 - **Numbers:** Replace numbers with `$NUMBER$` *(e.g, 4 → $NUMBER$)*
 - **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g, char(2) → $ESCAPE_CHAR$)*
 
-#### Vocabulary statistics
+Along with that, we followed a machine learning [methodology](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) in which we used part of the labelled data to train a model which then is tested on another part of the data. During training we validated the progress of the model using a third part of the data.
+
+| Split | Percentage |
+| :-: | :-: |
+| Train | 80% |
+| Test | 10% |
+| Validation | 10% |
+
+### Data Analysis
+
+This section shows some statistics and graphics of the labelled data.
+
+#### Vocabulary Statistics
 
 | | Frequency | Description |
 | :-: | :-: | :-: |
@@ -112,19 +129,19 @@ There are several pre-processing steps on Natural Language Processing that can b
 | 75% | 2 | Up to 75% of the words appear |
 | max | 1062 | The maximum number that a word appears |
 
-#### Vocabulary frequencies
+#### Vocabulary Frequencies
 
 This graph shows the full vocabulary of the data:
 
 ![Vocabulary frequencies](/data-analysis/vocabulary_frequency.png)
 
-#### Top 50 word frequencies
+#### Top 50 Words Frequencies
 
 This graph shows the fifty most common words in the data: 
 
 ![Top 50 word frequencies](/data-analysis/common_words.png)
 
-#### Histograms of length of tweets
+#### Histograms of Length of Tweets
 
 These graphs show the number of tweets with a certain length:
 
@@ -137,29 +154,19 @@ This is a wordcloud with the most common words.
 
 ![Wordcloud](/data-analysis/wordcloud.png)
 
-## System Architecture
-
-![System Architecture](/architecture/diagram.png)
-
-### Methodology
-
-We followed a machine learning [methodology](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) in which we used part of the labelled data to train a model which then is tested on another part of the data. During training we validated the progress of the model using a third part of the data.
-
-| Split | Percentage |
-| :-: | :-: |
-| Train | 80% |
-| Test | 10% |
-| Validation | 10% |
-
 ### Pre-trained Models
 
 We tested several Transformer and Adapters models. Nevertheless, [`xlm-roberta-base`](https://huggingface.co/xlm-roberta-base) was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
 
 | Model | Type | F1 (both) | es | pt |
 | :-: | :-: | :-: | :-: | :-: |
-| xlm-roberta-base | multilingual | ? | ? | ? |
+| xlm-roberta-base? | multilingual? | ? | ? | ? |
 
 For more information about all the model performances, checkout this [technical report](link).
+
+- ### System Architecture
+
+![System Architecture](/architecture/diagram.png)
 
 ## API [Documentation](https://turing.iimas.unam.mx/pmdm/docs)
 
@@ -280,7 +287,7 @@ Since we are aware that the management of an API is still not very accessible fo
 
 [violentometro-online](https://violentometro-online.herokuapp.com/) -> [Documentation](https://github.com/violentometro-online-team/violentometro-online)
 
-## References
+## Bibliography
 
 - [Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf)
 - [Ethical and technical challenges of AI in tackling hate speech](https://informationethics.ca/index.php/irie/article/view/416/390)
