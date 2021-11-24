@@ -8,8 +8,8 @@ We would like to thank ***Iván Vladimir*** for all his help developing the soft
 
 **Team members:**
 - Bárbara Libório, [AzMina](https://azmina.com.br/)
-- Marina Gama, [AzMina](https://azmina.com.br/)
-- Helena Bertho, [AzMina](https://azmina.com.br/)
+- Marina Gama Cubas, [AzMina](https://azmina.com.br/)
+- Helena Bertho Dias, [AzMina](https://azmina.com.br/)
 - Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
 - Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
 - Fer Aguirre, [DataCrítica](https://datacritica.org/)
@@ -53,7 +53,7 @@ For the above reason, although this AI model is able to identify violence agains
 
 Since the collaborators are from Latin American countries, this model was trained with Spanish and Portuguese tweets posted from 2020 to 2021. We retrieved 4179 tweets from Twitter in 'csv' format.
 
-> There are missing 270 tweets from the database we used to train the model and the database we share in this repository since we couldn't recover the IDs from those tweets. All the amounts from the data analysis in this repository belong to the database training.
+> There are missing 270 tweets from the database we used to train the model and the database we share in this repository since we couldn't recover the IDs from those tweets. All the amounts from the data analysis belong to the database training.
 
 | database training | database repository |
 | :-: | :-: |
@@ -79,7 +79,7 @@ The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv)
 
 ### Inter Annotator Agreement:
 
-The annotation for this database to detect misogyny was performed by six human annotators (five women and one man) which first language are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
+The annotation for this database to detect misogyny was performed by six human annotators (five women and one man) which first languages are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
 
 ## Methodology
 
