@@ -4,7 +4,7 @@
 
 `Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
 
-We would like to thank ***Iván Vladimir*** for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
+We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
 **Team members:**
 - Bárbara Libório, [AzMina](https://azmina.com.br/)
@@ -65,7 +65,7 @@ We created a dictionary on Spanish and one on Portuguese with misogynistic terms
 
 ### Labelling:
 
-The [data file](https://github.com/fer-aguirre/pmdm/blob/master/data/tweets.csv) includes three columns:
+The [data file](https://raw.githubusercontent.com/fer-aguirre/pmdm/master/data/tweets.csv) includes three columns:
 
 1. **ID**: As [Twitter's policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy) prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable and can be transformed into the original text using available tools.
 
@@ -83,11 +83,11 @@ The annotation for this database to detect misogyny was performed by six human a
 
 ## Methodology
 
-In order to create the classifier, we made use of five Colaboratory Python Notebooks:
+In order to create the classifier, we made use of five Colaboratory Python [Notebooks](https://drive.google.com/drive/folders/11PWsMQz1IsbttRyf90Ym37--0VU-O8r2):
 
-1. [Data analysis](link): Basic analysis and statistics of the data.
-2. [Train and evaluate model](link) (2 versions): Trains a model and evaluates it, one for Transformers and another for Adapters.
-3. [Labelling data](link) (2 versions): Labels data from entry form from the notebook or from a file, one for Transformers and another for Adapters.
+1. **Data analysis:** Basic analysis and statistics of the data.
+2. **Train and evaluate model (2 versions):** Trains a model and evaluates it, one for Transformers and another for Adapters.
+3. **Labelling data (2 versions):** Labels data from entry form from the notebook or from a file, one for Transformers and another for Adapters.
 
 ### Pre-processing Tweets
 
@@ -104,13 +104,15 @@ There are several pre-processing steps on Natural Language Processing that can b
 - **Numbers:** Replace numbers with `$NUMBER$` *(e.g, 4 → $NUMBER$)*
 - **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g, char(2) → $ESCAPE_CHAR$)*
 
+It is worth mentioning that we obtained better results lowering the text.
+
 Along with that, we followed a machine learning [methodology](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) in which we used part of the labelled data to train a model which then is tested on another part of the data. During training we validated the progress of the model using a third part of the data.
 
-| Split | Percentage |
-| :-: | :-: |
-| Train | 80% |
-| Test | 10% |
-| Validation | 10% |
+| Split | Percentage | Tweets |
+| :-: | :-: | :-: |
+| Train | 80% | 3,343 (1673 pt, 1669 es) |
+| Test | 10% | 418 (210 pt, 209 es) |
+| Validation | 10% | 418 (209 pt, 209 es) |
 
 ### Data Analysis
 
@@ -156,21 +158,26 @@ This is a wordcloud with the most common words.
 
 ### Pre-trained Models
 
-We tested several Transformer and Adapters models. Nevertheless, [`xlm-roberta-base`](https://huggingface.co/xlm-roberta-base) was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
+We tested several Transformers and Adapters models. Nevertheless, `cardiffnlp/twitter-xlm-roberta-base` was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
 
-| Model | Type | F1 (both) | es | pt |
+| Model | Type | both | es | pt |
 | :-: | :-: | :-: | :-: | :-: |
-| xlm-roberta-base? | multilingual? | ? | ? | ? |
+| [cardiffnlp/twitter-xlm-roberta-base](https://huggingface.co/cardiffnlp/twitter-xlm-roberta-base-sentiment) | Multilingual | ***0.8728*** | ***0.9191*** | 0.8235 |
+| [neuralmind/bert-base-portuguese-cased](https://huggingface.co/neuralmind/bert-base-portuguese-cased) | Portuguese | - | - | ***0.875*** |
+| [dccuchile/bert-base-spanish-wwm-uncased](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased) | Spanish | - | 0.8985 | - |
+| [mudes/multilingual-base](https://huggingface.co/mudes/multilingual-base) | Multilingual |  0.8641 | 0.8929 | 0.8339 |
+| [neuralmind/bert-base-portuguese-cased](https://huggingface.co/neuralmind/bert-base-portuguese-cased) | Portuguese | - | - | 0.8496 |
+| [PlanTL-GOB-ES/roberta-base-bne](https://huggingface.co/PlanTL-GOB-ES/roberta-base-bne) | Spanish | - | 0.9027 | - |
 
-For more information about all the model performances, checkout this [technical report](link).
+For more information about all the model performances, checkout this [technical report](https://docs.google.com/document/d/1VbeUCLYFrvT02A8GIBeL_VufjtkJRgNGK54CURho8R0/).
 
 - ### System Architecture
 
 ![System Architecture](/architecture/diagram.png)
 
-## API [Documentation](https://turing.iimas.unam.mx/pmdm/docs)
+## API [Documentation](https://gitlab.com/l52mas/political-misogynistic-discourse-monitor/-/tree/main/)
 
-To enable communication with the API, we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is well-documented and simple.
+To enable communication with the [API](https://turing.iimas.unam.mx/pmdm/docs), we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is well-documented and simple.
 
 ### Requests Library
 
@@ -198,7 +205,7 @@ For more information about HTTP request methods, checkout this [guide](https://d
 
 | Parameter | Description |
 | :-: | --- |
-| url | The url of the request |
+| url | A string with the endpoint |
 | headers | A dict to send to the url |
 | json | A dict to send to the url |
 | files | A dict of files to send to the url |
