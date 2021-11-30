@@ -4,7 +4,9 @@
 
 `Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
 
-We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
+This project is part of the [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), a global initiative that brings together media organisations to explore innovative solutions to improve journalism via the use of AI technologies. It was developed as part of the **Americas** cohort of the Collab Challenges that focused on *How might we use AI technologies to innovate newsgathering and investigative reporting techniques?* with the support of the [Knight Lab](https://knightlab.northwestern.edu/) at Northwestern University..
+
+[JournalismAI](https://www.lse.ac.uk/media-and-communications/polis/JournalismAI) is a project of [Polis](https://www.lse.ac.uk/media-and-communications/polis) – the journalism think-tank at the London School of Economics and Political Science – and it’s sponsored by the [Google News Initiative](https://newsinitiative.withgoogle.com/). If you want to know more about the Collab Challenges and other JournalismAI activities, [sign up for the newsletter](https://mailchi.mp/lse.ac.uk/journalismai) or get in touch with the team via hello@journalismai.info
 
 **Team members:**
 - Bárbara Libório, [AzMina](https://azmina.com.br/)
@@ -13,6 +15,8 @@ We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimi
 - Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
 - Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
 - Fer Aguirre, [DataCrítica](https://datacritica.org/)
+
+We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
 ## Contents
 - [Introduction](#introduction)
@@ -43,7 +47,7 @@ We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimi
 
 ## Introduction
 
-The *Political Misogynistic Discourse Monitor* team is part of the [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/). This collaboration is an attempt to accelerate the development of [MonitorA](https://azmina.com.br/projetos/monitora/), a project by [Azmina](https://azmina.com.br/) with [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), which gathered evidence and insight of systematic misogynistic attacks of women candidates in Brazilian local elections of 2020. 
+This collaboration is an attempt to accelerate the development of [MonitorA](https://azmina.com.br/projetos/monitora/), a project by [Azmina](https://azmina.com.br/) with [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), which gathered evidence and insight of systematic misogynistic attacks of women candidates in Brazilian local elections of 2020. 
 
 According to the report [*Violence Against Women in Politics*](https://www.unwomen.org/en/digital-library/publications/2014/6/violence-against-women-in-politics), this kind of violence is a deterrent to the participation of women in the political sphere, where women from marginalized communities are disproportionately affected. [UN Women](https://www.unwomen.org/en/what-we-do/leadership-and-political-participation/facts-and-figures) states that in Latin America’s context, women hold barely 30% of parliamentary seats. In addition, UN Women stands out that “gender equality in the highest positions of power will not be reached for another 130 years”. The mentioned facts lead us to analyze how the violence against women is perpetrated and has an impact in their participation. We want to report this kind of disinformation and attacks throughout Latin America in an effort to motivate new narratives where women have a safe space in their involvement in politics. 
 
