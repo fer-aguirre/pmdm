@@ -6,7 +6,7 @@ Queremos agradecer a ***Iván Vladimir*** por toda su ayuda en el desarrollo de 
 
 **Miembrxs del equipo:**
 - Bárbara Libório, [AzMina](https://azmina.com.br/)
-- Marina Gama, [AzMina](https://azmina.com.br/)
+- Marina Gama Cubas, [AzMina](https://azmina.com.br/)
 - Helena Bertho, [AzMina](https://azmina.com.br/)
 - Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
 - Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
