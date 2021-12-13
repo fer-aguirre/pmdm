@@ -88,9 +88,9 @@ O [arquivo de dados](https://raw.githubusercontent.com/fer-aguirre/pmdm/master/d
 
 ![Tuits per language](/data-analysis/language.png)
 
-### Inter Annotator Agreement:
+### Método de classificação:
 
-A anotação para este banco de dados de detecção de misoginia foi realizada por seis anotadores humanos (cinco mulheres e um homem) cujos primeiros idiomas são o espanhol ou o português e que se baseiam no país de cada conjunto de dados (Brasil, Argentina, Colômbia e México). Para validar a anotação, os tweets passaram por dois verificadores separadamente. Se a verificação realizada pela segunda pessoa correspondesse com a verificação feita pela primeira, a classificação permanecia.
+A classificação para este banco de dados de detecção de misoginia foi realizada por seis pessoas (cinco mulheres e um homem) cujos primeiros idiomas são o espanhol ou o português e que se baseiam no país de cada conjunto de dados (Brasil, Argentina, Colômbia e México). Para validar a classificação, os tweets passaram por dois verificadores separadamente. Se a verificação realizada pela segunda pessoa correspondesse com a verificação feita pela primeira, a classificação permanecia na base de dados.
 
 ## Metodologia
 
