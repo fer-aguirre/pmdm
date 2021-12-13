@@ -1,4 +1,4 @@
-### [Español](README-ES.md) 
+### [Español](README-ES.md) | [Inglês](README.md)
 ---
 # Monitor do Discurso Político Misógino (PMDM em inglês)
 
@@ -60,6 +60,7 @@ Por esse motivo, embora este modelo de IA seja capaz de identificar a violência
 Como os colaboradores são de países latino-americanos, esse modelo foi treinado com tweets em espanhol e português, postados de 2020 a 2021. Recuperamos 4.179 tweets do Twitter em formato 'csv'.
 
 > Estão faltando 270 tweets do banco de dados que usamos para treinar o modelo e do banco de dados que compartilhamos neste repositório, pois não foi possível recuperar os IDs dessas postagens. Todos os valores da análise dos dados pertencem ao treinamento do banco de dados.
+
 | database training | database repository |
 | :-: | :-: |
 | 4179 | 3909 |
