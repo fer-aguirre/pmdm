@@ -16,7 +16,7 @@ Este projeto faz parte do [2021 JournalismAI Collab Challenges](https://blogs.ls
 - Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
 - Fer Aguirre, [DataCrítica](https://datacritica.org/)
 
-Agradecemos a [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) por toda ajuda no desenvolvimento do software e da aplicação web; e ao [IIMAS](https://www.iimas.unam.mx/), (Instituto de Investigaciones en Matemáticas Aplicadas e en Sistemas), da UNAM, por hospedar o projeto.
+Agradecemos a [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) por toda ajuda no desenvolvimento do software e da aplicação web; e ao [IIMAS](https://www.iimas.unam.mx/) (Instituto de Investigaciones en Matemáticas Aplicadas e en Sistemas), da UNAM, por hospedar o projeto.
 
 ## Contents
 - [Introdução](#introdução)
@@ -114,8 +114,6 @@ Há várias etapas de pré-processamento no processamento de linguagem natural q
 - **Numbers:** Substituição de números por `$NUMBER$` *(ex.: 4 → $NUMBER$)*
 - **Escaped characters:** Substituição de escaped characters por `$ESCAPE_CHAR$` *(ex.: char(2) → $ESCAPE_CHAR$)*
 
-It is worth mentioning that we obtained better results lowering the text.
-
 Junto com isso, seguimos uma [metodologia](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) de aprendizado de máquina na qual usamos parte dos dados rotulados para treinar um modelo que, em seguida, é testado na outra parte dos dados. Durante o treinamento, validamos o progresso do modelo usando uma terceira parte dos dados.
 
 | Split | Percentage | Tweets |
@@ -126,7 +124,7 @@ Junto com isso, seguimos uma [metodologia](https://en.wikipedia.org/wiki/Trainin
 
 ### Análise de dados 
 
-Esta seção mostra algumas estatísticas e gráficos dos dados rotulados.
+Esta seção mostra algumas estatísticas e gráficos dos dados classificados.
 
 #### Estatística vocabulário
 
@@ -294,7 +292,7 @@ Default tweet arguments:
 
 Para mais exemplos, veja este [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/master/notebooks/examples.ipynb)
 
-## Trabalhos Futuros
+## Trabalho futuro
 
 Queremos criar conjuntos de dados de países latino-americanos não incluídos neste momento no interesse de manter o treinamento do modelo. Além disso, usaremos a API para agilizar a detecção e analisar instâncias de discurso misógino nas redes sociais.
 
