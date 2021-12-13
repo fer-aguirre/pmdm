@@ -31,7 +31,7 @@ Agradecemos a [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) por t
     - [Frequência do vocabulário](#frequencia-vocabulario)
     - [Top 50 das palavras mais frequentes](#top-50-words-frequencies)
     - [Taanhos dos tweets](#histograms-of-length-of-tweets)
-    - [Nuvem de palavras(#wordcloud)
+    - [Nuvem de palavras](#wordcloud)
   - [Modelos Pré-treinados](#pre-trained-models)
   - [Arquitetura do Sistema](#system-architecture)
 - [Documentação da API](#api-documentation)
