@@ -270,12 +270,20 @@ Default tweet arguments:
   
   headers = {'access-token': 'token'}
   
-  files = {'uploaded_file': open('filename.csv', 'rb')}
+  files = {'uploaded_file': open('filename', 'rb')}
   
-  # Tweet parameters are required
-  data = {'use_lower': 'false', 'demojize': 'true', 'process_urls': 'true', 
-  'process_mentions': 'true', 'process_hashtags': 'true', 'process_emojis': 'false', 
-  'process_smileys': 'false', 'process_numbers': 'false', 'process_escaped_chars': 'false'}
+  # Tweet arguments required
+  data = {
+          'model': 'es',
+          'use_lower': 'false', 
+          'demojize': 'true', 
+          'process_urls':'true', 
+          'process_mentions': 'true', 
+          'process_hashtags': 'true', 
+          'process_emojis': 'false', 
+          'process_smileys': 'false', 
+          'process_numbers': 'false', 
+          'process_escaped_chars': 'false'}
 
   response = requests.post(url, headers=headers, files=files, data=data)
 

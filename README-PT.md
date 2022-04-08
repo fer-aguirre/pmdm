@@ -2,7 +2,7 @@
 ---
 # Monitor do Discurso Político Misógino (PMDM em inglês)
 
-`Political Misogynistic Discourse Monitor` é um [aplicativo da web](https://turing.iimas.unam.mx/pmdm/) e uma API que detecta discurso de ódio contra mulheres em vários idiomas.
+`Political Misogynistic Discourse Monitor` é um [aplicativo da web](https://turing.iimas.unam.mx/pmdm/) e uma API que detecta discurso de ódio contra mulheres em espanhol e português.
 
 Este projeto faz parte do [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), uma iniciativa global que reúne organizações de mídia para explorar soluções inovadoras para melhorar o jornalismo por meio do uso de tecnologias de Inteligência Artificial. Ele foi desenvolvido como parte do grupo das Américas no Collab Challenges, que tinha como objetivo o uso de tecnologias de IA para inovar as técnicas de coleta de notícias e reportagens investigativas. Em todo o percurso tivemos o apoio do [Knight Lab](https://knightlab.northwestern.edu/), da Northwestern University, para o desenvolvimento de nossos trabalhos.
 
@@ -274,12 +274,20 @@ Default tweet arguments:
   
   headers = {'access-token': 'token'}
   
-  files = {'uploaded_file': open('filename.csv', 'rb')}
+  files = {'uploaded_file': open('filename', 'rb')}
   
-  # Tweet parameters are required
-  data = {'use_lower': 'false', 'demojize': 'true', 'process_urls': 'true', 
-  'process_mentions': 'true', 'process_hashtags': 'true', 'process_emojis': 'false', 
-  'process_smileys': 'false', 'process_numbers': 'false', 'process_escaped_chars': 'false'}
+  # Tweet arguments required
+  data = {
+          'model': 'es',
+          'use_lower': 'false', 
+          'demojize': 'true', 
+          'process_urls':'true', 
+          'process_mentions': 'true', 
+          'process_hashtags': 'true', 
+          'process_emojis': 'false', 
+          'process_smileys': 'false', 
+          'process_numbers': 'false', 
+          'process_escaped_chars': 'false'}
 
   response = requests.post(url, headers=headers, files=files, data=data)
 

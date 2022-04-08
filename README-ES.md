@@ -1,6 +1,6 @@
 # Monitor de Discurso Político Misógino (PMDM en inglés)
 
-`Monitor de Discurso Político Misógino` es una [aplicación web](https://turing.iimas.unam.mx/pmdm/)  y API que detecta el discurso de odio contra las mujeres en varios idiomas.
+`Monitor de Discurso Político Misógino` es una [aplicación web](https://turing.iimas.unam.mx/pmdm/)  y API que detecta el discurso de odio contra las mujeres en español y portugués.
 
 Queremos agradecer a ***Iván Vladimir*** por toda su ayuda en el desarrollo de software y la aplicación web. También queremos agradecer a [IIMAS](https://www.iimas.unam.mx/) por alojar el proyecto.
 
