@@ -1,24 +1,31 @@
 ### [Español](README-ES.md) | [Português](README-PT.md)
 ---
+
 # Political Misogynistic Discourse Monitor (PMDM)
 
-`Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in several languages.
+`Political Misogynistic Discourse Monitor` is a [web application](https://turing.iimas.unam.mx/pmdm/) and API that detects hate speech against women in Spanish and Portuguese. 
 
-This project is part of the [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), a global initiative that brings together media organisations to explore innovative solutions to improve journalism via the use of AI technologies. It was developed as part of the **Americas** cohort of the Collab Challenges that focused on *How might we use AI technologies to innovate newsgathering and investigative reporting techniques?* with the support of the [Knight Lab](https://knightlab.northwestern.edu/) at Northwestern University..
+This project is part of the [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), a global initiative that brings together media organisations to explore innovative solutions to improve journalism via the use of AI technologies. It was developed as part of the **Americas** cohort of the Collab Challenges that focused on [*How might we use AI technologies to innovate newsgathering and investigative reporting techniques?*](https://www.youtube.com/watch?v=wBJ9KbR-yWQ) in collaboration between [AzMina](https://azmina.com.br/) (Brazil), [La Nación](https://www.lanacion.com.ar/data/) (Argentina), [CLIP](https://www.elclip.org/) (Colombia) and [Data Crítica](https://datacritica.org/) (México) with the support of the [Knight Lab](https://knightlab.northwestern.edu/) at Northwestern University.
 
 [JournalismAI](https://www.lse.ac.uk/media-and-communications/polis/JournalismAI) is a project of [Polis](https://www.lse.ac.uk/media-and-communications/polis) – the journalism think-tank at the London School of Economics and Political Science – and it’s sponsored by the [Google News Initiative](https://newsinitiative.withgoogle.com/). If you want to know more about the Collab Challenges and other JournalismAI activities, [sign up for the newsletter](https://mailchi.mp/lse.ac.uk/journalismai) or get in touch with the team via hello@journalismai.info
 
+![API usage example](./assets/webapp.gif)
+
 **Team members:**
-- Bárbara Libório, [AzMina](https://azmina.com.br/)
-- Marina Gama Cubas, [AzMina](https://azmina.com.br/)
-- Helena Bertho Dias, [AzMina](https://azmina.com.br/)
-- Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
-- Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
-- Fer Aguirre, [DataCrítica](https://datacritica.org/)
+
+  - [Bárbara Libório](https://twitter.com/baliborio)
+  - [Marina Gama Cubas](https://twitter.com/marinagamacubas)
+  - [Helena Bertho Dias](https://twitter.com/helldias000)
+  - [Gabriela Bouret](https://twitter.com/gabybouret)
+  - [Jose Luis Peñarredonda](https://twitter.com/noalsilencio)
+  - [Fernanda Aguirre](https://twitter.com/feragru)
 
 We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) for all his help developing the software and the web application. We also want to acknowledge [IIMAS](https://www.iimas.unam.mx/) for hosting the project.
 
+---
+
 ## Contents
+
 - [Introduction](#introduction)
 - [Data](#data)
   - [Corpus Creation](#corpus-creation)
@@ -45,13 +52,17 @@ We would like to thank [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimi
 - [Related Work](#related-work)
 - [Bibliography](#bibliography)
 
+---
+
 ## Introduction
 
-This collaboration is an attempt to accelerate the development of [MonitorA](https://azmina.com.br/projetos/monitora/), a project by [Azmina](https://azmina.com.br/) with [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), which gathered evidence and insight of systematic misogynistic attacks of women candidates in Brazilian local elections of 2020. 
+This collaboration is an attempt to accelerate the development of [MonitorA](https://azmina.com.br/projetos/monitora/), a project by [AzMina](https://azmina.com.br/) with [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), which gathered evidence and insight of systematic misogynistic attacks of women candidates in Brazilian local elections of 2020. 
 
 According to the report [*Violence Against Women in Politics*](https://www.unwomen.org/en/digital-library/publications/2014/6/violence-against-women-in-politics), this kind of violence is a deterrent to the participation of women in the political sphere, where women from marginalized communities are disproportionately affected. [UN Women](https://www.unwomen.org/en/what-we-do/leadership-and-political-participation/facts-and-figures) states that in Latin America’s context, women hold barely 30% of parliamentary seats. In addition, UN Women stands out that “gender equality in the highest positions of power will not be reached for another 130 years”. The mentioned facts lead us to analyze how the violence against women is perpetrated and has an impact in their participation. We want to report this kind of disinformation and attacks throughout Latin America in an effort to motivate new narratives where women have a safe space in their involvement in politics. 
 
 For the above reason, although this AI model is able to identify violence against women in general, we want to focus on misogyny in political discourse as a case study in Latin America. In our project, we support that the automation of detecting misogynistic discourse is just a tool to help identifying attacks against women among a large volume of data on Twitter, so the system highlights content that can be analyzed by a human moderator afterward.
+
+---
 
 ## Data
 
@@ -63,37 +74,39 @@ Since the collaborators are from Latin American countries, this model was traine
 | :-: | :-: |
 | 4179 | 3909 |
 
-### Corpus Creation:
+1. ### Corpus Creation:
 
 We created a dictionary on Spanish and one on Portuguese with misogynistic terms and phrases. Along with that, we made a list of usernames for trendy politicians. However, we considered those accounts wouldn't be inclusive enough, so we decided to make a second list exclusively for diverse women (black, indigenous and LGBTQIA+) politicians, journalists and activists from Brazil, Argentina, Colombia and Mexico. Therefore tweets mentioning both lists of usernames were collected from Twitter using [Meltwater](https://www.meltwater.com/en) and filtered by the dictionaries with regular expressions.
 
-### Labelling:
+2. ### Labelling:
 
-The [data file](https://raw.githubusercontent.com/fer-aguirre/pmdm/master/data/tweets.csv) includes three columns:
+  The [data file](https://raw.githubusercontent.com/fer-aguirre/pmdm/main/data/pmdm_data.csv) includes three columns:
 
-1. **ID**: As [Twitter's policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy) prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable and can be transformed into the original text using available tools.
+  - **ID**: As [Twitter's policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy) prevents from sharing tweets messages, we only included the ID from each tweet, considering that IDs are allowed to be downloadable and can be transformed into the original text using available tools.
 
-2. **Classification**: Tweets are annotated with the label `1` if they are misogynistic or `0` if they are not. Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
+  - **Classification**: Tweets are annotated with the label `1` if they are misogynistic or `0` if they are not. Misogynistic discourse were positive in 2637 tweets and negative in 1542 tweets.
 
-![Tuits per classes](/data-analysis/classification.png)
+  ![Tuits per classes](./assets/classification.png)
 
-3. **Language**: There's a label for the language of the tweet, `es` for Spanish and `pt` for Portuguese. There are 2087 tweets on Spanish and 2092 on Portuguese.
+  - **Language**: There's a label for the language of the tweet, `es` for Spanish and `pt` for Portuguese. There are 2087 tweets on Spanish and 2092 on Portuguese.
 
-![Tuits per language](/data-analysis/language.png)
+  ![Tuits per language](./assets/language.png)
 
-### Inter Annotator Agreement:
+3. ### Inter Annotator Agreement:
 
 The annotation for this database to detect misogyny was performed by six human annotators (five women and one man) which first languages are Spanish or Portuguese and that are based on the country of each dataset (Brazil, Argentina, Colombia and Mexico). In order to validate the annotation, all the classification labels had a checker different from the first annotator. If the checker agreed on the label, the classification remained. Otherwise, the tweet was removed from the database.
 
+---
+
 ## Methodology
 
-In order to create the classifier, we made use of five Colaboratory Python [Notebooks](https://drive.google.com/drive/folders/11PWsMQz1IsbttRyf90Ym37--0VU-O8r2):
+In order to create the classifier, we made use of five [Colaboratory Python Notebooks](https://drive.google.com/drive/folders/11PWsMQz1IsbttRyf90Ym37--0VU-O8r2):
 
-1. **Data analysis:** Basic analysis and statistics of the data.
-2. **Train and evaluate model (2 versions):** Trains a model and evaluates it, one for Transformers and another for Adapters.
-3. **Labelling data (2 versions):** Labels data from entry form from the notebook or from a file, one for Transformers and another for Adapters.
+- **Data analysis:** Basic analysis and statistics of the data.
+- **Train and evaluate model (2 versions):** Trains a model and evaluates it, one for Transformers and another for Adapters.
+- **Labelling data (2 versions):** Labels data from entry form from the notebook or from a file, one for Transformers and another for Adapters.
 
-### Pre-processing Tweets
+1. ### Pre-processing Tweets
 
 There are several pre-processing steps on Natural Language Processing that can be applied to the data:
 
@@ -102,11 +115,11 @@ There are several pre-processing steps on Natural Language Processing that can b
 - **Demojize:** Change emojis to textual representation. *(e.g., ☺️ → :smiling_face:)*
 - **URLs:** Replace URLs with `$URL$` *(e.g., https://github.com/ → $URL$)*
 - **Mentions:** Replace mentions with `$MENTION$` *(e.g., @github → $MENTION$)*
-- **Hashtags:** Replace hashtags with `$HASHTAG$` *(e.g, #github → $HASHTAG$)*
+- **Hashtags:** Replace hashtags with `$HASHTAG$` *(e.g., #github → $HASHTAG$)*
 - **Emojis:** Replace emojis with `$EMOJI$` *(e.g., 😃 → $EMOJI$)*
-- **Smileys:** Replace smileys with `$SMILEY` *(e.g, :) → $SMILEY)*
-- **Numbers:** Replace numbers with `$NUMBER$` *(e.g, 4 → $NUMBER$)*
-- **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g, char(2) → $ESCAPE_CHAR$)*
+- **Smileys:** Replace smileys with `$SMILEY` *(e.g., :) → $SMILEY)*
+- **Numbers:** Replace numbers with `$NUMBER$` *(e.g., 4 → $NUMBER$)*
+- **Escaped characters:** Replace escaped characters with `$ESCAPE_CHAR$` *(e.g., char(2) → $ESCAPE_CHAR$)*
 
 It is worth mentioning that we obtained better results lowering the text.
 
@@ -118,11 +131,11 @@ Along with that, we followed a machine learning [methodology](https://en.wikiped
 | Test | 10% | 418 (210 pt, 209 es) |
 | Validation | 10% | 418 (209 pt, 209 es) |
 
-### Data Analysis
+2. ### Data Analysis
 
 This section shows some statistics and graphics of the labelled data.
 
-#### Vocabulary Statistics
+- #### Vocabulary Statistics:
 
 | | Frequency | Description |
 | :-: | :-: | :-: |
@@ -135,32 +148,34 @@ This section shows some statistics and graphics of the labelled data.
 | 75% | 2 | Up to 75% of the words appear |
 | max | 1062 | The maximum number that a word appears |
 
-#### Vocabulary Frequencies
+- #### Vocabulary Frequencies
 
 This graph shows the full vocabulary of the data:
 
-![Vocabulary frequencies](/data-analysis/vocabulary_frequency.png)
+![Vocabulary frequencies](./assets/wordFrequency.png)
 
-#### Top 50 Words Frequencies
+- #### Top 50 Words Frequencies
 
 This graph shows the fifty most common words in the data: 
 
-![Top 50 word frequencies](/data-analysis/common_words.png)
+![Top 50 word frequencies](./assets/topWordFrequency.png)
 
-#### Histograms of Length of Tweets
+- #### Histograms of Length of Tweets
 
 These graphs show the number of tweets with a certain length:
 
-![Histograms of length of tokens](/data-analysis/lenght_token.png)
-![Histograms of length of chars](/data-analysis/lenght_chars.png)
+![Histograms of length of tokens](./assets/lenghtTokens.png)
+![Histograms of length of chars](./assets/lenghtChars.png)
 
-#### Wordcloud
+- #### Wordcloud
 
-This is a wordcloud with the most common words.
+This is a wordcloud with the most common words:
 
-![Wordcloud](/data-analysis/wordcloud.png)
+![Wordcloud](./assets/wordcloud.png)
 
-### Pre-trained Models
+---
+
+3. ### Pre-trained Models
 
 We tested several Transformers and Adapters models. Nevertheless, `cardiffnlp/twitter-xlm-roberta-base` was the one with the better performance on [F1 score](https://en.wikipedia.org/wiki/F-score):
 
@@ -175,15 +190,21 @@ We tested several Transformers and Adapters models. Nevertheless, `cardiffnlp/tw
 
 For more information about all the model performances, checkout this [technical report](https://docs.google.com/document/d/1VbeUCLYFrvT02A8GIBeL_VufjtkJRgNGK54CURho8R0/).
 
-- ### System Architecture
+---
 
-![System Architecture](/architecture/diagram.png)
+4. ### System Architecture
 
-## API [Documentation](https://gitlab.com/l52mas/political-misogynistic-discourse-monitor/-/tree/main/)
+This is the workflow structure we follow for the project:
 
-To enable communication with the [API](https://turing.iimas.unam.mx/pmdm/docs), we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in python. However, we'll make use of `requests` due to it is well-documented and simple.
+![System Architecture](./assets/diagram.png)
 
-### Requests Library
+---
+
+## [API Documentation](https://gitlab.com/l52mas/political-misogynistic-discourse-monitor/-/tree/main/)
+
+To enable communication with the [API](https://turing.iimas.unam.mx/pmdm/docs), we need a [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) library to make a request-response. There are a few libraries to make HTTP requests in Python. However, we'll make use of `requests` due to it is well-documented and simple.
+
+- ### Requests Library
 
 Installing package with conda:
 
@@ -197,7 +218,7 @@ Installing package with pip:
   pip install requests
   ```
 
-### POST Request
+- ### POST Request
 
 The POST method is used when we want to submit data to be processed to the server. Here's an example of the syntax:
 
@@ -205,7 +226,7 @@ The POST method is used when we want to submit data to be processed to the serve
 
 For more information about HTTP request methods, checkout this [guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-#### Parameter Values
+- #### Parameter Values
 
 | Parameter | Description |
 | :-: | --- |
@@ -215,15 +236,15 @@ For more information about HTTP request methods, checkout this [guide](https://d
 | files | A dict of files to send to the url |
 | data | A dict or list of tuples to send to the url|
 
-### Status Code
+- ### Status Code
 
 The status code method shows the result when a request is sent. Responses can be grouped in five categories:
 
 1. Informational `100`-`199`
 2. Succesful `200`-`299`
-4. Redirection `300`-`399`
-5. Client error `400`-`499`
-6. Server error `500`-`599`
+3. Redirection `300`-`399`
+4. Client error `400`-`499`
+5. Server error `500`-`599`
 
 For more information about HTTP response status codes, checkout this [guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
@@ -294,7 +315,9 @@ Default tweet arguments:
 
 ### More Examples
 
-For more examples, see this [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/master/notebooks/examples.ipynb)
+For more examples, see this [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/main/notebooks/examples.ipynb)
+
+---
 
 ## Future Work
 
@@ -302,7 +325,17 @@ For future work we would like to create datasets from Latin American countries n
 
 Since we are aware that the management of an API is still not very accessible for a lot of newsrooms in the region due to technical requirements, we want to document and methodize use applications that hopefully inspire and help other organizations to work with this tool. 
 
-## Related work
+---
+
+## Contact Us
+
+If you want to collaborate or just to know more about the project, please reach out to us: 
+- barbara@azmina.com.br
+- faguirre@datacritica.org 
+
+---
+
+## Related Work
 
 [violentometro-online](https://violentometro-online.herokuapp.com/) -> [Documentation](https://github.com/violentometro-online-team/violentometro-online)
 

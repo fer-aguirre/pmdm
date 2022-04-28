@@ -1,22 +1,28 @@
 ### [Español](README-ES.md) | [Inglês](README.md)
 ---
+
 # Monitor do Discurso Político Misógino (PMDM em inglês)
 
 `Political Misogynistic Discourse Monitor` é um [aplicativo da web](https://turing.iimas.unam.mx/pmdm/) e uma API que detecta discurso de ódio contra mulheres em espanhol e português.
 
-Este projeto faz parte do [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), uma iniciativa global que reúne organizações de mídia para explorar soluções inovadoras para melhorar o jornalismo por meio do uso de tecnologias de Inteligência Artificial. Ele foi desenvolvido como parte do grupo das Américas no Collab Challenges, que tinha como objetivo o uso de tecnologias de IA para inovar as técnicas de coleta de notícias e reportagens investigativas. Em todo o percurso tivemos o apoio do [Knight Lab](https://knightlab.northwestern.edu/), da Northwestern University, para o desenvolvimento de nossos trabalhos.
+Este projeto faz parte do [2021 JournalismAI Collab Challenges](https://blogs.lse.ac.uk/polis/2021/03/23/journalismai-collab-challenges/), uma iniciativa global que reúne organizações de mídia para explorar soluções inovadoras para melhorar o jornalismo por meio do uso de tecnologias de Inteligência Artificial. Ele foi desenvolvido como parte do grupo das Américas no Collab Challenges, que tinha como objetivo [*Como podemos usar as tecnologias de IA para inovar as técnicas de coleta de notícias e de reportagens investigativas?*](https://www.youtube.com/watch?v=wBJ9KbR-yWQ) em colaboração entre [AzMina](https://azmina.com.br/) (Brasil), [La Nación](https://www.lanacion.com.ar/data/) (Argentina), [CLIP](https://www.elclip.org/) (Colômbia) e [Data Crítica](https://datacritica.org/) (México). Em todo o percurso tivemos o apoio do [Knight Lab](https://knightlab.northwestern.edu/), da Northwestern University, para o desenvolvimento de nossos trabalhos.
 
 [JournalismAI](https://www.lse.ac.uk/media-and-communications/polis/JournalismAI) é um projeto do [Polis](https://www.lse.ac.uk/media-and-communications/polis) – o centro de estudos em jornalismo da London School of Economics and Political Science - e é patrocinado pelo [Google News Initiative](https://newsinitiative.withgoogle.com/). Se quiser saber mais sobre Collab Challenges e outras atividades do JournalismAI, [inscreva-se na newsletter](https://mailchi.mp/lse.ac.uk/journalismai) ou entre em contato com a equipe através do e-mail hello@journalismai.info
 
+![API exemplo de uso](./assets/webapp.gif)
+
 **Membros da equipe:**
-- Bárbara Libório, [AzMina](https://azmina.com.br/)
-- Marina Gama Cubas, [AzMina](https://azmina.com.br/)
-- Helena Bertho Dias, [AzMina](https://azmina.com.br/)
-- Gaby Bouret, [La Nación Data](https://www.lanacion.com.ar/data/)
-- Jose Luis Peñarredonda, [CLIP](https://www.elclip.org/)
-- Fer Aguirre, [DataCrítica](https://datacritica.org/)
+
+  - [Bárbara Libório](https://twitter.com/baliborio)
+  - [Marina Gama Cubas](https://twitter.com/marinagamacubas)
+  - [Helena Bertho Dias](https://twitter.com/helldias000)
+  - [Gabriela Bouret](https://twitter.com/gabybouret)
+  - [Jose Luis Peñarredonda](https://twitter.com/noalsilencio)
+  - [Fernanda Aguirre](https://twitter.com/feragru)
 
 Agradecemos a [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) por toda ajuda no desenvolvimento do software e da aplicação web; e ao [IIMAS](https://www.iimas.unam.mx/) (Instituto de Investigaciones en Matemáticas Aplicadas e en Sistemas), da UNAM, por hospedar o projeto.
+
+---
 
 ## Contents
 - [Introdução](#introdução)
@@ -45,15 +51,19 @@ Agradecemos a [Ivan Vladimir](https://turing.iimas.unam.mx/~ivanvladimir/) por t
 - [Trabalho relacionado](#related-work)
 - [Bibliografia](#bibliography)
 
+---
+
 ## Introdução
 
-Este trabalho é uma tentativa de acelerar o desenvolvimento do  [MonitorA](https://azmina.com.br/projetos/monitora/), um projeto de [Azmina](https://azmina.com.br/) com [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), que reuniu evidências e percepções de ataques misóginos sistemáticos de candidatas nas eleições locais brasileiras de 2020.
+Este trabalho é uma tentativa de acelerar o desenvolvimento do  [MonitorA](https://azmina.com.br/projetos/monitora/), um projeto de [AzMina](https://azmina.com.br/) com [InternetLab](https://www.internetlab.org.br/en/) and [Institute Update](https://www.institutoupdate.org.br/en/home/), que reuniu evidências e percepções de ataques misóginos sistemáticos de candidatas nas eleições locais brasileiras de 2020.
  
 De acordo com o relatório [*Violence Against Women in Politics*](https://www.unwomen.org/en/digital-library/publications/2014/6/violence-against-women-in-politics), este tipo de violência é um impedimento à participação das mulheres na esfera política, onde as mulheres de comunidades marginalizadas são afetadas de forma desproporcional. A [ONU Mulheres](https://www.unwomen.org/en/what-we-do/leadership-and-political-participation/facts-and-figures) afirma que, no contexto da América Latina, as mulheres ocupam apenas 30% dos assentos parlamentares. Além disso, a organização destaca que “a igualdade de gênero nos cargos mais altos do poder não será alcançada por mais 130 anos”. 
 
 Os fatos mencionados nos levam a analisar como a violência contra as mulheres é perpetrada e tem impacto na sua participação. Queremos relatar esse tipo de desinformação e ataques em toda a América Latina em um esforço para motivar novas narrativas onde as mulheres tenham um espaço seguro em seu envolvimento na política.
 
 Por esse motivo, embora este modelo de IA seja capaz de identificar a violência contra as mulheres em diferentes contextos, queremos enfocar a misoginia no discurso político como um estudo de caso na América Latina. Em nosso projeto, defendemos que a automação da detecção de discurso misógino é apenas uma ferramenta para ajudar a identificar ataques contra mulheres em meio a um grande volume de dados no Twitter. A ferramenta desenvolvida é importante para que o sistema destaque o conteúdo que pode ser analisado por um moderador humano posteriormente.
+
+---
 
 ## Dados
 
@@ -65,7 +75,7 @@ Como os colaboradores são de países latino-americanos, esse modelo foi treinad
 | :-: | :-: |
 | 4179 | 3909 |
 
-### Criação do corpus:
+1. ### Criação do corpus:
 
 Criamos um dicionário em espanhol e outro em português com termos e frases misóginas. Junto com isso, fizemos uma lista de nomes de usuários para políticos que têm destaque nos países onde atua e um número significativo de seguidores de modo que suas postagens tenham possibilidade de maior alcance na rede. 
 
@@ -73,33 +83,35 @@ No entanto, consideramos que os termos e frases misóginas não seriam abrangent
 
 Os tweets mencionando em ambas as listas foram coletados do Twitter usando [Meltwater](https://www.meltwater.com/en) e filtrados pelos dicionários a partir de expressões regulares.
 
+2. ### Classificação:
 
-### Classificação:
+  O [arquivo de dados](https://raw.githubusercontent.com/fer-aguirre/pmdm/main/data/pmdm_data.csv) possui três colunas:
 
-O [arquivo de dados](https://raw.githubusercontent.com/fer-aguirre/pmdm/master/data/tweets.csv) possui três colunas:
+  - **ID**: Como a [política do Twitter](https://developer.twitter.com/en/developer-terms/agreement-and-policy) impede o compartilhamento de mensagens de tweets, incluímos apenas o ID de cada tweet, considerando que os IDs podem ser baixados e podem ser transformados no texto original usando as ferramentas disponíveis.
 
-1. **ID**: Como a [política do Twitter](https://developer.twitter.com/en/developer-terms/agreement-and-policy) impede o compartilhamento de mensagens de tweets, incluímos apenas o ID de cada tweet, considerando que os IDs podem ser baixados e podem ser transformados no texto original usando as ferramentas disponíveis.
+  - **Classificação**:  tweets são etiquetados com o rótulo 1 se forem misóginos ou 0 se não forem. O discurso misógino foi positivo em 2.637 tweets e negativo em 1.542 tweets.
 
-2. **Classificação**:  tweets são etiquetados com o rótulo 1 se forem misóginos ou 0 se não forem. O discurso misógino foi positivo em 2.637 tweets e negativo em 1.542 tweets.
+  ![Tuits per classes](./assets/classification.png)
 
-![Tuits per classes](/data-analysis/classification.png)
+  - **Idioma**: Existe um rótulo para o idioma do tweet, `es` para espanhol and `pt` para português. Há 2.087 tweets em espanhol e 2.092 em português.
 
-3. **Idioma**: Existe um rótulo para o idioma do tweet, `es` para espanhol and `pt` para português. Há 2.087 tweets em espanhol e 2.092 em português.
+  ![Tuits per language](./assets/language.png)
 
-![Tuits per language](/data-analysis/language.png)
-
-### Método de classificação:
+3. ### Método de classificação:
 
 A classificação para este banco de dados de detecção de misoginia foi realizada por seis pessoas (cinco mulheres e um homem) cujos primeiros idiomas são o espanhol ou o português e que se baseiam no país de cada conjunto de dados (Brasil, Argentina, Colômbia e México). Para validar a classificação, os tweets passaram por dois verificadores separadamente. Se a verificação realizada pela segunda pessoa correspondesse com a verificação feita pela primeira, a classificação permanecia na base de dados.
 
+---
+
 ## Metodologia
 
-Para a criação do classificador, utilizamos cinco Colaboratory Python [Notebooks](https://drive.google.com/drive/folders/11PWsMQz1IsbttRyf90Ym37--0VU-O8r2):
+Para a criação do classificador, utilizamos cinco [Colaboratory Python Notebooks](https://drive.google.com/drive/folders/11PWsMQz1IsbttRyf90Ym37--0VU-O8r2):
 
-1. **Análise de dados:** Análise básica e estatística dos dados.
-2. **Treinamento e avaliação do modelos (2 versões):** Trains a model and evaluates it, one for Transformers and ano.
+- **Análise de dados:** Análise básica e estatística dos dados.
+- **Treinamento e avaliação do modelos (2 versões):** Treina e avalia um modelo, um para Transformers e outro para Adapters.
+- **Dados de rotulagem (2 versões):** Rotula os dados do formulário de entrada do caderno ou de um arquivo, um para Transformers e outro para Adapters.
 
-### Pré-processamento dos tweets
+1. ### Pré-processamento dos tweets
 
 Há várias etapas de pré-processamento no processamento de linguagem natural que foram aplicadas aos dados:
 
@@ -122,11 +134,11 @@ Junto com isso, seguimos uma [metodologia](https://en.wikipedia.org/wiki/Trainin
 | Test | 10% | 418 (210 pt, 209 es) |
 | Validation | 10% | 418 (209 pt, 209 es) |
 
-### Análise de dados 
+2. ### Análise de dados 
 
 Esta seção mostra algumas estatísticas e gráficos dos dados classificados.
 
-#### Estatística vocabulário
+- #### Estatística vocabulário
 
 | | Frequency | Description |
 | :-: | :-: | :-: |
@@ -139,30 +151,32 @@ Esta seção mostra algumas estatísticas e gráficos dos dados classificados.
 | 75% | 2 | Up to 75% of the words appear |
 | max | 1062 | The maximum number that a word appears |
 
-#### Frequência do vocabulário
+- #### Frequência do vocabulário
 
 Este gráfico mostra o vocabulário completo dos dados:
 
-![Vocabulary frequencies](/data-analysis/vocabulary_frequency.png)
+![Vocabulary frequencies](./assets/wordFrequency.png)
 
-#### Top 50 das palavras mais frequentes
+- #### Top 50 das palavras mais frequentes
 
 Este gráfico mostra as cinquenta palavras mais comuns nos dados:
 
-![Top 50 word frequencies](/data-analysis/common_words.png)
+![Top 50 word frequencies](./assets/topWordFrequency.png)
 
-#### Tamanho dos tweets
+- #### Tamanho dos tweets
 
 Estes gráficos mostram o número de tweets com um determinado comprimento:
 
-![Histograms of length of tokens](/data-analysis/lenght_token.png)
-![Histograms of length of chars](/data-analysis/lenght_chars.png)
+![Histograms of length of tokens](./assets/lenghtTokens.png)
+![Histograms of length of chars](./assets/lenghtChars.png)
 
-#### Nuvem de palavra
+- #### Nuvem de palavra
 
 Esta é uma nuvem de palavras com as palavras mais comuns:
 
-![Wordcloud](/data-analysis/wordcloud.png)
+![Wordcloud](./assets/wordcloud.png)
+
+---
 
 ### Modelos Pré-Treinados
 
@@ -179,15 +193,21 @@ Testamos vários modelos de transformadores e adaptadores. No entanto `cardiffnl
 
 Para mais informações sobre o desempenho de todos os modelos, consulte o [relatório técnico](https://docs.google.com/document/d/1VbeUCLYFrvT02A8GIBeL_VufjtkJRgNGK54CURho8R0/).
 
-- ### Arquitetura
+---
 
-![System Architecture](/architecture/diagram.png)
+- ### Arquitetura do Sistema
 
-## API [Documentação](https://gitlab.com/l52mas/political-misogynistic-discourse-monitor/-/tree/main/)
+Esta é a estrutura de fluxo de trabalho que seguimos para o projeto:
 
-Para permitir a comunicação com a [API](https://turing.iimas.unam.mx/pmdm/docs), precisamos de uma biblioteca [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) para fazer uma solicitação-resposta. Existem algumas bibliotecas para fazer solicitações HTTP em python. No entanto, faremos uso de solicitações por ser bem documentado e simples.
+![Arquitetura do Sistema](./assets/diagram.png)
 
-### Requests Library
+---
+
+## [API Documentação](https://gitlab.com/l52mas/political-misogynistic-discourse-monitor/-/tree/main/)
+
+Para permitir a comunicação com a [API](https://turing.iimas.unam.mx/pmdm/docs), precisamos de uma biblioteca [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) para fazer uma solicitação-resposta. Existem algumas bibliotecas para fazer solicitações HTTP em Python. No entanto, faremos uso de solicitações por ser bem documentado e simples.
+
+- ### Requests Library
 
 Instalando com conda:
 
@@ -201,7 +221,7 @@ Instalando com pip:
   pip install requests
   ```
 
-### POST Request
+- ### POST Request
 
 O método POST é usado quando queremos enviar dados para serem processados no servidor. Abaixo, um exemplo de sintaxe:
 
@@ -209,7 +229,7 @@ O método POST é usado quando queremos enviar dados para serem processados no s
 
 Para obter mais informações, consulte este [guia](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-#### Valores dos parâmetros
+- #### Valores dos parâmetros
 
 | Parameter | Description |
 | :-: | --- |
@@ -219,15 +239,15 @@ Para obter mais informações, consulte este [guia](https://developer.mozilla.or
 | files | A dict of files to send to the url |
 | data | A dict or list of tuples to send to the url|
 
-### Status Code
+- ### Status Code
 
 Mostra o resultado quando uma solicitação é enviada. As respostas podem ser agrupadas em cinco categorias:
 
 1. Informational `100`-`199`
 2. Succesful `200`-`299`
-4. Redirection `300`-`399`
-5. Client error `400`-`499`
-6. Server error `500`-`599`
+3. Redirection `300`-`399`
+4. Client error `400`-`499`
+5. Server error `500`-`599`
 
 Para obter mais informações, verifique este [guia](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
@@ -298,13 +318,25 @@ Default tweet arguments:
 
 ### Outros exemplos
 
-Para mais exemplos, veja este [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/master/notebooks/examples.ipynb)
+Para mais exemplos, veja este [Jupyter Notebook](https://nbviewer.org/github/fer-aguirre/pmdm/blob/main/notebooks/examples.ipynb)
+
+---
 
 ## Trabalho futuro
 
 Queremos criar conjuntos de dados de países latino-americanos não incluídos neste momento no interesse de manter o treinamento do modelo. Além disso, usaremos a API para agilizar a detecção e analisar instâncias de discurso misógino nas redes sociais.
 
 Estamos cientes de que o gerenciamento de uma API ainda não é muito acessível para muitas redações da região devido a requisitos técnicos, por isso queremos documentar e metodizar aplicativos de uso que esperamos inspirar e ajudar outras organizações a trabalhar com esta ferramenta.
+
+---
+
+## Contate-nos
+
+Se você quiser colaborar ou apenas saber mais sobre o projeto, por favor, entre em contato conosco: 
+- barbara@azmina.com.br
+- faguirre@datacritica.org 
+
+---
 
 ## Trabalho relacionado 
 
